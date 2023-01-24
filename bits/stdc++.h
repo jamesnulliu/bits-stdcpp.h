@@ -22,20 +22,22 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/** @file stdc++.h
- *  This is an implementation file for a precompiled header.
+/** 
+ * @file stdc++.h
+ * This is an implementation file for a precompiled header.
+ * C++11 is the lowest standard to use this header.
  */
-
-// 17.4.1.2 Headers
 
 // C
 #ifndef _GLIBCXX_NO_ASSERT
 #include <cassert>
 #endif
+
 #include <cctype>
 #include <cerrno>
 #include <cfloat>
-#if __cplusplus < 202002L
+
+#if __cplusplus < 202002L || !_HAS_CXX20
 #include <ciso646>
 #endif
 #include <climits>
@@ -50,7 +52,7 @@
 #include <cstring>
 #include <ctime>
 
-#if __cplusplus >= 201103L && __cplusplus < 201703L
+#if __cplusplus < 201703L || !_HAS_CXX17
 #include <ccomplex>
 #include <cfenv>
 #include <cinttypes>
@@ -95,7 +97,7 @@
 #include <valarray>
 #include <vector>
 
-#if __cplusplus >= 201103L
+// C++11
 #include <array>
 #include <atomic>
 #include <chrono>
@@ -115,4 +117,3 @@
 #include <type_traits>
 #include <unordered_map>
 #include <unordered_set>
-#endif
